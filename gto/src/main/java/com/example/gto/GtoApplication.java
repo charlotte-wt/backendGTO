@@ -17,11 +17,11 @@ public class GtoApplication {
 }
 
 @RestController
-class HelloControler {
+class HelloControLler {
 
   @RequestMapping("/")
   public String hello() {
-    return "Hello Spring Booot";
+    return "Hello Spring Boot";
   }
 
 }
