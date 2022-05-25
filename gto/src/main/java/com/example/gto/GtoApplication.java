@@ -2,10 +2,10 @@ package com.example.gto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
+@EnableMongoRepositories("com.example.gto")
 public class GtoApplication {
 
 	public static void main(String[] args) {
@@ -16,12 +16,3 @@ public class GtoApplication {
 
 }
 
-@RestController
-class HelloControLler {
-
-  @RequestMapping("/")
-  public String hello() {
-    return "Hello Spring Boot";
-  }
-
-}
