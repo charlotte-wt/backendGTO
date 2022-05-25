@@ -1,22 +1,40 @@
 package com.example.gto.User;
 
-
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.NotNull;
 
 
+
+@Getter
+@Setter
+@ToString
+@Component
 public class User {
 
+    @Field("email")
+    @Indexed(unique = true)
+    @NotNull
+    private @Id String email;
 
-    @Id
-    public String email;
+    @Field("userName")
+    @NotNull
+    private String userName;
 
-    public String userName;
+    @Field("phoneNum")
+    private String phoneNum;
 
-    public String phoneNum;
+    @Field("password")
+    @NotNull
+    private String password;
 
-    public String password;
-
-    public User() {}
+    protected User() {}
 
     public User(String userName, String email, String phoneNum, String password) {
         this.userName = userName;
@@ -32,5 +50,7 @@ public class User {
                 "User[userName=%s, email='%s']",
                 userName, email);
     }
+
+
 
 }
