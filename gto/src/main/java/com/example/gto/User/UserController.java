@@ -3,6 +3,7 @@ package com.example.gto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public String addUser(@RequestBody User user) {
+    public String addUser(@Valid @RequestBody User user) {
         users.save(user);
         return "Added user with email : " + user.getEmail();
     }
