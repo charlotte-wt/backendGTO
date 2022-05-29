@@ -1,5 +1,6 @@
 package com.example.gto.UserAuth;
 
+import com.example.gto.GtoApplication;
 import com.example.gto.User.Role;
 import com.example.gto.User.User;
 import com.example.gto.User.UserRole;
