@@ -5,17 +5,18 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
-
+import java.util.Set;
 
 
 @Getter
 @Setter
 @ToString
-@Component
+@Document(collection = "user")
 public class User {
 
     @Field("email")
@@ -33,6 +34,10 @@ public class User {
     @Field("password")
     @NotNull
     private String password;
+
+
+    @DBRef
+    private Set<Role> roles;
 
     protected User() {}
 
