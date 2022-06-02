@@ -19,7 +19,7 @@ import java.util.Set;
 @Document(collection = "user")
 public class User {
 
-    @Field("email")
+
     @Indexed(unique = true)
     @NotNull
     private @Id String email;
@@ -41,9 +41,9 @@ public class User {
 
     protected User() {}
 
-    public User(String userName, String email, String phoneNum, String password) {
-        this.userName = userName;
+    public User(String email, String userName, String phoneNum, String password) {
         this.email = email;
+        this.userName = userName;
         this.phoneNum = phoneNum;
         this.password = password;
 
