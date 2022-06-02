@@ -58,7 +58,7 @@ public class AuthController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("currentUser", user);
-        modelAndView.addObject("fullName", "Welcome " + user.getUserName());
+        modelAndView.addObject("userName", "Welcome " + user.getUserName());
         modelAndView.addObject("adminMessage", "Content available only for users with admin role");
         modelAndView.setViewName("dashboard");
         return modelAndView;

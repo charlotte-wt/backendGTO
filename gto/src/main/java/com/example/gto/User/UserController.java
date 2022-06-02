@@ -34,6 +34,6 @@ public class UserController {
     @DeleteMapping("/delete/{email}")
     public String deleteUser(@PathVariable String email) {
         users.deleteById(email);
-        return "book deleted with id : " + email;
+        return "user deleted with id : " + email;
     }
 }
