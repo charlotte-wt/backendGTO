@@ -32,9 +32,6 @@ public class User {
     private String email;
 
     @NotBlank
-    @Size(max = 20)
-    private String phoneNum;
-    @NotBlank
     @Size(max = 120)
     private String password;
     @DBRef
@@ -42,10 +39,9 @@ public class User {
 
     protected User() {}
 
-    public User(String userName, String email, String phoneNum, String password) {
+    public User(String userName, String email, String password) {
         this.username = userName;
         this.email = email;
-        this.phoneNum = phoneNum;
         this.password = password;
 
     }
