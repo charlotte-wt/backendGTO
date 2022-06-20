@@ -19,12 +19,7 @@ public class TestController {
     public String userAccess() {
         return "User Content.";
     }
-
-    @GetMapping("/user/friends")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-    public String friendsListAccess() {
-        return "User Content.";
-    }
+    
 
     @GetMapping("/mod")
     @PreAuthorize("hasRole('MODERATOR')")
