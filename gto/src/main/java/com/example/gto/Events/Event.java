@@ -21,17 +21,23 @@ public class Event {
     @Size(max = 20)
     private String username;
 
+
+
     @NotBlank
     @Size(max = 50)
     @Email
     private String email;
 
     @NotBlank
+    private String title;
+
+    @NotBlank
     private String description;
 
-    public Event(String username, String email, String description) {
+    public Event(String username, String email, String title, String description) {
         this.username = username;
         this.email = email;
+        this.title = title;
         this.description = description;
     }
 
