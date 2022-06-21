@@ -3,6 +3,7 @@ package com.example.gto.Events;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
+@Component
 public class Event {
 
     @Id
