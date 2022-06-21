@@ -19,7 +19,7 @@ public class TestController {
     public String userAccess() {
         return "User Content.";
     }
-    
+
 
     @GetMapping("/mod")
     @PreAuthorize("hasRole('MODERATOR')")
