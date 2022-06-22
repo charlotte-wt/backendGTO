@@ -34,6 +34,9 @@ public class Event {
     @NotBlank
     private String description;
 
+    public Event() {
+
+    }
     public Event(String username, String email, String title, String description) {
         this.username = username;
         this.email = email;

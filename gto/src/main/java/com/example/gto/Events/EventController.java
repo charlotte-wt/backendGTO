@@ -19,7 +19,7 @@ public class EventController {
 
     @GetMapping("")
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-    public List<Event> getFriends() {
+    public List<Event> getEvents() {
         return eventRepository.findAll();
     }
 
