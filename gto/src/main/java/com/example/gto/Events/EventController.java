@@ -103,11 +103,11 @@ public class EventController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @DeleteMapping("delete/{title}")
+    @DeleteMapping("delete/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public ResponseEntity<Event> deleteEvent(@PathVariable Event event) {
+    public ResponseEntity<Event> deleteEvent(@PathVariable("id") String id) {
         try {
-            eventRepository.deleteAll();
+            eventRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
