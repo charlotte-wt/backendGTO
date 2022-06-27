@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping("/api/events")
 public class EventController {
@@ -41,7 +41,8 @@ public class EventController {
         }
     }
 
-    @GetMapping("findEventById/{id}")
+    @GetMapping("{id}")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Event> getEventById(@PathVariable("id") String id) {
         Optional<Event> eventData = eventRepository.findById(id);
 
@@ -103,7 +104,7 @@ public class EventController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Event> deleteEvent(@PathVariable("id") String id) {
         try {
