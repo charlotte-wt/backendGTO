@@ -47,7 +47,7 @@ public class BlogController {
     }
 
 
-    @PostMapping("")
+    @PostMapping("add")
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Blog> addBlog(@Valid @RequestBody Blog blog) {
         try {
@@ -70,7 +70,7 @@ public class BlogController {
         }
     }
 
-    @PutMapping("{id}")
+    @PutMapping("update/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Blog> updateBlog(@PathVariable("id") String id, @RequestBody Blog blog) {
         Optional<Blog> blogData = blogRepository.findById(id);
@@ -110,7 +110,7 @@ public class BlogController {
         }
     }
 
-    @GetMapping("user")
+    @GetMapping("user/{id}")
     @PreAuthorize("permitAll()")
     public ResponseEntity<Blog> getBlogByUser(@PathVariable("id") String userId) {
         Optional<Blog> userData = blogRepository.queryBlogByUser(userId);
