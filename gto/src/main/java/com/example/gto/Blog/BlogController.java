@@ -81,6 +81,7 @@ public class BlogController {
             _blog.setDescription(blog.getDescription());
             _blog.setImage(blog.getImage());
             _blog.setUserId(blog.getUserId());
+            _blog.setUsername(blog.getUsername());
             return new ResponseEntity<>(blogRepository.save(_blog), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

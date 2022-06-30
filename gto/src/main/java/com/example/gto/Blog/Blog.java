@@ -31,17 +31,21 @@ public class Blog {
     @NotBlank
     private String userId;
 
+    @NotBlank
+    private String username;
+
     @DBRef
     Set<Category> categories = new HashSet<>();
 
     public Blog() {
 
     }
-    public Blog(String title, String description, String image, String userId) {
+    public Blog(String title, String description, String image, String userId, String username) {
         this.title = title;
         this.description = description;
         this.image = image;
         this.userId = userId;
+        this.username = username;
     }
 
 
