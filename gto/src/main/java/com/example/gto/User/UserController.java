@@ -5,6 +5,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -21,12 +22,12 @@ public class UserController {
         return userRepository.findAll();
     }
 
-//    @GetMapping("{id}")
-//    @PreAuthorize("permitAll()")
-//    public User getUserById(@PathVariable("id") String id) {
-//        User userData = userRepository.findByUserId(id);
-//        return userData;
-//    }
+    @GetMapping("{id}")
+    @PreAuthorize("permitAll()")
+    public User getUserById(@PathVariable("id") String id) {
+        Optional<User> userData = userRepository.findById(id);
+        return userData.get();
+    }
 
 //    @PutMapping("{id}")
 //    @PreAuthorize("hasRole('USER') hasRole('MODERATOR') or hasRole('ADMIN')")
