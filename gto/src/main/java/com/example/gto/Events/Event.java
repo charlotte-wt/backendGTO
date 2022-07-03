@@ -34,17 +34,23 @@ public class Event {
     @NotBlank
     private String description;
 
-    private boolean published;
+    @NotBlank
+    private boolean status;
 
     public Event() {
 
     }
-    public Event(String username, String email, String title, String description, boolean published) {
+    public Event(String username, String email, String title, String description, boolean status) {
         this.username = username;
         this.email = email;
         this.title = title;
         this.description = description;
-        this.published = published;
+        this.status = status;
+    }
+
+
+    public boolean getStatus() {
+        return status;
     }
 
 

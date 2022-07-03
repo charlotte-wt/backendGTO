@@ -77,6 +77,8 @@ public class EventController {
         }
     }
 
+
+
     @PostMapping("")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Event> addEvent(@Valid @RequestBody Event event) {
@@ -99,6 +101,7 @@ public class EventController {
             _event.setUsername(event.getEmail());
             _event.setTitle(event.getTitle());
             _event.setDescription(event.getDescription());
+            _event.setStatus(event.getStatus());
             return new ResponseEntity<>(eventRepository.save(_event), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -114,4 +117,6 @@ public class EventController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
 }
