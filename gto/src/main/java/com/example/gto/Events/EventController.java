@@ -98,7 +98,7 @@ public class EventController {
         if (eventData.isPresent()) {
             Event _event = eventData.get();
             _event.setUsername(event.getUsername());
-            _event.setUsername(event.getEmail());
+            _event.setEmail(event.getEmail());
             _event.setTitle(event.getTitle());
             _event.setDescription(event.getDescription());
             _event.setStatus(event.getStatus());
@@ -113,6 +113,19 @@ public class EventController {
         try {
             eventRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("published")
+    public ResponseEntity<List<Event>> findByStatus() {
+        try {
+            List<Event> events = eventRepository.findByStatus(true);
+            if (events.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(events, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
