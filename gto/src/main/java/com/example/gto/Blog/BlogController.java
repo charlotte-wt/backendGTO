@@ -101,7 +101,7 @@ public class BlogController {
     }
 
     @DeleteMapping("{id}")
-    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Blog> deleteBlog(@PathVariable("id") String id) {
         try {
             blogRepository.deleteById(id);
