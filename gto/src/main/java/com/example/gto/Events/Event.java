@@ -34,7 +34,7 @@ public class Event {
     @NotBlank
     private String description;
 
-    @NotBlank
+
     private boolean status;
 
     public Event() {
