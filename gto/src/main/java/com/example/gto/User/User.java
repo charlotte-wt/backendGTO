@@ -1,5 +1,6 @@
 package com.example.gto.User;
 
+import com.example.gto.Blog.Blog;
 import com.example.gto.Role.Role;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,6 +37,8 @@ public class User {
     private String password;
     @DBRef
     private Set<Role> roles = new HashSet<>();
+
+    private Set<Blog> blogs = new HashSet<>();
 
     protected User() {}
 
