@@ -71,7 +71,7 @@ public class BlogController {
     }
 
     @PutMapping("update/{id}")
-    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Blog> updateBlog(@PathVariable("id") String id, @RequestBody Blog blog) {
         Optional<Blog> blogData = blogRepository.findById(id);
 

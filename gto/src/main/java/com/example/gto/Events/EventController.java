@@ -80,7 +80,7 @@ public class EventController {
 
 
     @PostMapping("")
-    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Event> addEvent(@Valid @RequestBody Event event) {
         try {
             Event _event = eventRepository.save(event);
@@ -91,7 +91,7 @@ public class EventController {
     }
 
     @PutMapping("{id}")
-    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Event> updateEvent(@PathVariable("id") String id, @RequestBody Event event) {
         Optional<Event> eventData = eventRepository.findById(id);
 
@@ -108,7 +108,7 @@ public class EventController {
         }
     }
     @DeleteMapping("{id}")
-    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Event> deleteEvent(@PathVariable("id") String id) {
         try {
             eventRepository.deleteById(id);
