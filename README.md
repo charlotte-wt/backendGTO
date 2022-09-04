@@ -1,6 +1,6 @@
 # backendGTO
 
-### background / aim of application:
+### Background / aim of application:
 GIRLSTIMEONLINE is a fluid social media platform focused on enabling females to connect to role models, for them to be inspired to take on a career pathway less favourable for women.
 
 ### Frontend:
